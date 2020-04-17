@@ -23,7 +23,7 @@ export default App;
 const Container = styled.div`
 margin: 34px 50px;
 display: flex; 
-flex-direction: row; 
-align-items: center;
+flex-direction: row;
+justify-content: center;
 flex-wrap: wrap; 
 `
