@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import ItemForm from "./components/ItemForm"
 import styled from 'styled-components'
+import ItemShow from "./components/ItemShow";
 
 const App = () => (
   <>
@@ -13,6 +14,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/form" component={ItemForm} />
+        <Route exact path="/item/show" component={ItemShow} />
       </Switch>
     </Container>
   </>

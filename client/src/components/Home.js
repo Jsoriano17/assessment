@@ -2,11 +2,12 @@ import React, { useState, useEffect, } from "react";
 import axios from 'axios';
 import { Card, Button } from 'antd';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 function Home() {
     const [items, setItems] = useState([])
     const { Meta } = Card;
-    
+
     useEffect(() => {
         axios.get(`/api/items`).then(res => {
             setItems(res.data)
@@ -35,16 +36,20 @@ function Home() {
 
     const renderItems = () => {
         return items.map(item => (
-            <Card
-                key={`${item.id}`}
-                hoverable
-                style={{ width: 240, margin: '15px 20px' }}
-                cover={<img alt="example" src={item.image} />}
-            >
-                <Meta title={item.name} description={item.description} />
-                <br />
-                <p>{item.likes}</p>
-            </Card>
+            <>
+                <Link to = {{pathname: '/item/show', id: item.id}}>
+                    <Card
+                        key={`${item.id}`}
+                        hoverable
+                        style={{ width: 240, margin: '15px 20px' }}
+                        cover={<img alt="example" src={item.image} />}
+                    >
+                        <Meta title={item.name} description={item.description} />
+                        <br />
+                        <p>{item.likes}</p>
+                    </Card>
+                </Link>
+            </>
         ))
     }
 
